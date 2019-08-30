@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <h1>{{titulo}}</h1>
+        
+        <input type="text" v-model="nuevoJuego" @keyup.enter="agregarJuego">
+        <button v-on:click="agregarJuego">Agregar Juego</button>
+        <button @click="agregarFruta">Agregar Fruta</button>
+
+        <ul>
+            <li v-for="fruta of frutas">
+                {{fruta}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="juego of juegos">
+                <input type="number" v-model.number="juego.cantidad">
+                {{juego.nombre}}
+                <button @click></button>
+                <span v-if="juego.cantidad > 1">- Quedan pocos!</span>
+            </li>
+        </ul>
+        <form role="form" class="form" onsubmit="return false;">
+            <div class="form-group">
+              <label for="file">File</label>
+              <input id="file" type="file" class="form-control"/>
+            </div>
+            <button id="upload" type="button" class="btn btn-primary">Upload</button>
+          </form>
+          <div id="output" class="container"></div>
+
+          <form id="uploadForm" enctype="multipart/form-data" v-on:change="uploadFile">
+            <input type="file" id="file" name="file">
+            </form>
+    </div>
+    <!-- development version, includes helpful console warnings-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="01.js"></script>
+</body>
+</html>
